@@ -123,10 +123,14 @@
     function generateInsert() {
       var columns = [];
 
-      for (var i = 1; i <= 5; i++) {
+      let lbc = '';
+      // main
+      for (var i = 1; i <= 4; i++) {
         var input = document.getElementById("column" + i);
         var value = (input && input.value) ? input.value : '';
-
+        if (i == 1) {
+          lbc = value;
+        }
         if (value.length > parseInt(input.maxLength)) {
           alert("Column " + i + "の入力が最大長を超えています。");
           return;
@@ -134,33 +138,78 @@
 
         columns.push("'" + value.replace(/\n/g, '\\n') + "'");
       }
-
       // var insertStatement = "INSERT INTO your_table_name (column1, column2, column3, column4, column5, column6, column7, column8, column9, column10) VALUES (" + columns.join(", ") + ");";
       // 共通項目の設定
       columns.push("'test'");
       //      columns.push("'" + value.replace(/\n/g, '\\n') + "'");
+      var insertMainStatement = "INSERT INTO table1 (column1, column2, column3, column4, 共通カラム1) VALUES (" + columns.join(", ") + ");";
 
-      var insertStatement1 = "INSERT INTO table1 (column1, column2, column3, column4, column5, 共通カラム1) VALUES (" + columns.join(", ") + ");";
-
+      // sub1
+      var insertFlag = false;
       var columns = [];
-      for (var i = 6; i <= 10; i++) {
+      var subCountNum = 1;
+      // 入力項目1を入れる
+      columns.push("'" + lbc.replace(/\n/g, '\\n') + "'");
+      // サブコンテンツの数
+      columns.push("'" + subCountNum + "'");
+
+      for (var i = 5; i <= 7; i++) {
         var input = document.getElementById("column" + i);
         var value = (input && input.value) ? input.value : '';
+        if (value != '') {
+          insertFlag = true;
+        }
+        if (value.length > parseInt(input.maxLength)) {
+          alert("Column " + i + "の入力が最大長を超えています。");
+          return;
+        }
+        columns.push("'" + value.replace(/\n/g, '\\n') + "'");
+      }
+      // 共通項目の設定
+      columns.push("'test'");
+      // sub1 INSERT
+      var insertSubStatement1;
+      if (insertFlag) {
+        insertSubStatement1 = "INSERT INTO table2 (column1, displayNumber, column5,column6, column7) VALUES (" + columns.join(", ") + ");";
+      } else {
+        insertSubStatement1 = ''
+      }
+
+      // sub2
+      var insertFlag = false;
+      var columns = [];
+      // 入力項目1を入れる
+      columns.push("'" + lbc.replace(/\n/g, '\\n') + "'");
+      // サブコンテンツの数
+      subCountNum++
+      columns.push("'" + subCountNum + "'");
+
+      for (var i = 8; i <= 9; i++) {
+        var input = document.getElementById("column" + i);
+        var value = (input && input.value) ? input.value : '';
+        if (value != '') {
+          insertFlag = true;
+        }
 
         if (value.length > parseInt(input.maxLength)) {
           alert("Column " + i + "の入力が最大長を超えています。");
           return;
         }
-
         columns.push("'" + value.replace(/\n/g, '\\n') + "'");
       }
       // 共通項目の設定
       columns.push("'test'");
 
-      var insertStatement2 = "INSERT INTO table2 (column6, column7, column8, column9, column10) VALUES (" + columns.join(", ") + ");";
+      var insertSubStatement2;
+      // sub1 INSERT
+      if (insertFlag) {
+        insertSubStatement2 = "INSERT INTO table2 (column1, displayNumber ,column8,column9, column10) VALUES (" + columns.join(", ") + ");";
+      } else {
+        insertSubStatement2 = ''
+      }
 
 
-      var combinedStatement = insertStatement1 + '\n\n' + insertStatement2;
+      var combinedStatement = insertMainStatement + '\n\n' + insertSubStatement1 + '\n\n' + insertSubStatement2;
 
       displayGeneratedStatement(combinedStatement);
       // displayGeneratedStatement(insertStatement);
