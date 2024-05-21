@@ -1,0 +1,10 @@
+/* TabButton.css */
+.tab-button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background-color: #007BFF;
+  color: white;
+}
