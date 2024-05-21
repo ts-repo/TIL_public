@@ -15,7 +15,7 @@
       <div class="form-group">
         <!-- Column 1 to 10 -->
         <label for="column1">Column 1:</label>
-        <textarea class="form-control" id="column1" maxlength="3"
+        <textarea class="form-control" id="column1" maxlength="3"  rows='1'
           oninput="updateCharacterCount('column1', 'column1Count')"></textarea>
         <small class="form-text text-muted">残り<span id="column1Count">3</span>文字</small>
       </div>
@@ -84,7 +84,7 @@
 
     <div class="mt-3">
       <h4>生成された文</h4>
-      <textarea id='generatedStatement' rows='5' style='width: 100%;'></textarea>
+      <textarea id='generatedStatement' rows='5' style='width: 100%;' ></textarea>
       <div class="mb-3"></div>
       <button type="button" class="btn btn-info" onclick="copyGeneratedStatement()">コピー</button>
     </div>
