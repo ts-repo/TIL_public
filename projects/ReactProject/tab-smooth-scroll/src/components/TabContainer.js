@@ -11,7 +11,7 @@ const TabContainer = () => {
     setActiveTab(tabId);
     if (tabId === 'tab1' && scrollToId) {
       setTimeout(() => {
-        document.getElementById(scrollToId).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(scrollToId).scrollIntoView({ behavior: 'auto' });
       }, 100); // Delay to ensure the content is visible
     }
   };
