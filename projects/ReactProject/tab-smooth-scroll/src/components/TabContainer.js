@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import TabButton from './TabButton';
 import TabContent from './TabContent';
 import './TabContainer.css';
-import { render } from '@testing-library/react';
 
 const TabContainer = () => {
   const [activeTab, setActiveTab] = useState('tab1');
@@ -18,10 +17,6 @@ const TabContainer = () => {
 
   const showTab = (tabId) => {
     setActiveTab(tabId);
-  };
-
-  const smoothScrollTo = (elementId) => {
-    document.getElementById(elementId).scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -44,12 +39,7 @@ const TabContainer = () => {
         <TabButton
           id="tab3-btn"
           active={activeTab === 'tab3'}
-          onClick={() => handleTabClick('tab1', 'scroll-target')} isActive={activeTab === 'tab3'}
-          // onClick={() => {
-          //   showTab('tab1');
-          //   smoothScrollTo('scroll-target');
-          // }
-          // }
+          onClick={() => handleTabClick('tab1', 'scroll-target')}
         >
           タブ3
         </TabButton>
