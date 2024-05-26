@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Content, PublishedButton, TextInput, Title, Counter} from './index';
+import {Content, PublishedButton, TextInput, Title, Counter, Toggle} from './index';
 
 
 const Article = (props) => {
@@ -16,6 +16,7 @@ return <div className="article">
   {/* <button onClick={() => setIsPublished(true)}>公開</button> */}
   <TextInput />
   <Counter />
+  <Toggle />
 </div>
 }
 
