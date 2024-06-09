@@ -1,0 +1,66 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "security.workspace.trust.untrustedFiles": "open",
+    // enterでサジェストを決定しない
+    // "editor.acceptSuggestionOnEnter": "off",
+    // これをfalseにするとkeywordだけ消してくれる
+    // "editor.suggest.showKeywords": false,
+    // textもいらないので消す
+    "editor.suggest.showWords": false,
+    // snippetのサジェストを最初に出す。
+    // "editor.snippetSuggestions": "top",
+    // 入力した時にどの項目にカーソルを合わせた状態にするかみたいなやつrecentlyUsedByPrefixにした
+    // "editor.suggestSelection": "first",
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "git.autofetch": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "vsicons.dontShowNewVersionMessage": true,
+    "explorer.confirmDelete": false,
+    "editor.fontSize": 20,
+    "editor.tabSize": 2,
+    "editor.autoClosingBrackets": "always",
+    "editor.hover.delay": 100,
+    "editor.mouseWheelZoom": true,
+    "editor.minimap.enabled": false,
+    "workbench.commandPalette.history": 1000,
+    "workbench.commandPalette.preserveInput": true,
+    "workbench.preferredDarkColorTheme": "Community Material Theme Darker",
+    "workbench.startupEditor": "none",
+    "window.closeWhenEmpty": true,
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "explorer.confirmDragAndDrop": false,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "editor.multiCursorModifier": "ctrlCmd",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "vsnotes.defaultNotePath": "/Users/tatsuya/Documents/GitHub/TIL/markdown_memo",
+    "editor.guides.bracketPairs": true,
+    "git.ignoredRepositories": [
+        "/Users/tatsuya/.vscode/extensions/stepsize.stepsize-1.0.15/resources/demo-repository"
+    ],
+    "editor.unicodeHighlight.allowedCharacters": {
+        "／": true
+    },
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "cSpell.userWords": [
+        "argparser",
+        "googleapiclient",
+        "yahooquery"
+    ],
+    "terminal.integrated.tabs.defaultColor": "terminal.ansiRed",
+    "workbench.preferredHighContrastLightColorTheme": "Peacock (rainglow)",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
+}
