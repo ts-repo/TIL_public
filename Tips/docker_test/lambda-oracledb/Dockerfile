@@ -1,13 +1,13 @@
 FROM amazonlinux:2
 
+# Oracle Instant Clientと依存ライブラリをインストール
 RUN yum update -y && \
-    yum install -y python3 python3-pip zip oracle-instantclient19.8-basic && \
-    mkdir -p /app
+    yum install -y zip oracle-instantclient19.8-basic && \
+    mkdir -p /opt/lib
 
-WORKDIR /app
+# インストールされたInstant Clientの場所を確認してコピー
+RUN cp -r /usr/lib/oracle /opt/lib/
 
-RUN pip3 install oracledb -t .
-
-COPY lambda_function.py .
-
-RUN zip -r9 /app/lambda_function.zip .
+# ZIP化（Lambdaレイヤー用構造）
+WORKDIR /opt
+RUN zip -r9 /opt/oracle_instantclient_layer.zip .
