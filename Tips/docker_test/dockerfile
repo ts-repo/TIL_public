@@ -1,0 +1,19 @@
+# Amazon Linux 2をベースに
+FROM amazonlinux:2
+
+# Pythonと依存ツールをインストール
+RUN yum update -y && \
+    yum install -y python3 python3-pip zip oracle-instantclient19.8-basic && \
+    mkdir -p /app
+
+# 作業ディレクトリ
+WORKDIR /app
+
+# Pythonライブラリをインストール（Lambda互換）
+RUN pip3 install oracledb -t /app
+
+# Lambda関数ファイルをコピー（後でホスト側から上書きするので空でもOK）
+COPY lambda_function.py .
+
+# zipを作成
+RUN zip -r9 /app/lambda_function.zip .
